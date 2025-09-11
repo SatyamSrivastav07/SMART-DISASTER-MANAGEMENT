@@ -1,11 +1,23 @@
 {
   "name": "smart-disaster-response-system-fullstack",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "description": "Full-stack Smart Disaster Response System with authentication and real-time data",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\""
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
+    "start": "npm run dev",
+    "build": "npm run build --prefix frontend",
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm start --prefix frontend",
+    "seed": "npm run seed --prefix backend",
+    "test": "concurrently \"npm test --prefix backend\" \"npm test --prefix frontend\""
   },
   "devDependencies": {
     "concurrently": "^9.0.0"
-  }
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
 }
